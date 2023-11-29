@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/home.css" />
+<link rel="stylesheet" href="/css/projectDetails.css" />
 <section id="page_header">
   <button
     id="add_btn"
@@ -11,7 +11,7 @@
       class="fa-solid fa-plus fa-bounce fa-lg"
       style="color: #cf3075; background: transparent"
     ></i>
-    Add Project
+    Add Issue
   </button>
 
   <!-- Modal -->
@@ -19,7 +19,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Add Project</h5>
+          <h5 class="modal-title">Add Issue</h5>
           <button
             type="button"
             class="btn"
@@ -30,17 +30,17 @@
           </button>
         </div>
         <form
-          action="/projects/create"
+          action="/issues/create/<%= project_details._id%>"
           method="post"
-          id="add-project-form"
+          id="add-issue-form"
           style="background: transparent; margin: 0"
         >
           <div class="modal-body">
             <input
               type="text"
               class="input-style"
-              placeholder="Type Project Name..."
-              name="project_name"
+              placeholder="Enter Issue Title...."
+              name="issue_name"
               required
             />
             <textarea
@@ -51,6 +51,7 @@
               placeholder="Type Here...."
               required
             ></textarea>
+
             <input
               type="text"
               class="input-style"
@@ -63,34 +64,10 @@
             <button type="button" class="btn close-btn" data-bs-dismiss="modal">
               Close
             </button>
-            <button type="submit" class="btn save-btn">Add Project</button>
+            <button type="submit" class="btn save-btn">Add Issue</button>
           </div>
         </form>
       </div>
     </div>
   </div>
-</section>
-<section id="project-list">
-  <% for(p of projects) {%>
-  <a href="/projects/details/<%= p._id%>" id="card_redirect">
-    <div class="card-div">
-      <div class="all_back"><b class="all_back">Title: </b> <%= p.name %></div>
-      <div class="all_back" style="width: 100%">
-        <p class="description-p">
-          <b class="all_back">Description: </b> <%= p.description %>
-        </p>
-      </div>
-      <div class="all_back" style="width: 100%; display: flex">
-        <div class="all_back" style="text-align: start; margin-left: 0">
-          <b class="all_back">Total Issue: </b>
-          <span class="all_back"> <%= p.issues.length %></span>
-        </div>
-        <div class="all_back" style="text-align: end; margin-right: 0">
-          <b class="all_back">Author: </b>
-          <span class="all_back"> <%= p.author %></span>
-        </div>
-      </div>
-    </div>
-  </a>  
-  <% } %>
 </section>
