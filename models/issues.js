@@ -12,7 +12,7 @@ const issueShema = new mongoose.Schema(
     },
     labels: [
       {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Array,
         ref: "Labels",
       },
     ],

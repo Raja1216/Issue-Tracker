@@ -1,4 +1,6 @@
 * {
-  margin: 0 auto;
+  margin: 0 auto; }
+
+body {
   background: #004e92;
   background: radial-gradient(circle, #004e92 18%, #000428 95%); }

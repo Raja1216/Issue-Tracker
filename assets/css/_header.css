@@ -10,3 +10,9 @@ header {
   color: #01ff09;
   padding: 0px 10px;
   font-family: 'Amita', cursive; }
+  header a {
+    text-decoration: none;
+    color: #01ff09; }
+  header a:hover {
+    text-decoration: none;
+    color: #01ff09; }

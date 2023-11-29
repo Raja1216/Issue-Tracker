@@ -51,7 +51,19 @@
               placeholder="Type Here...."
               required
             ></textarea>
-
+            <select
+              class="selectpicker input-style"
+              multiple
+              data-live-search="true"
+              aria-label="size 3 select example"
+              name="labels"
+            >
+              <option value="Subtask">Subtask</option>
+              <option value="Bug">Bug</option>
+              <option value="Incident">Incident</option>
+              <option value="Problem">Problem</option>
+              <option value="Support">Support</option>
+            </select>
             <input
               type="text"
               class="input-style"
@@ -69,5 +81,70 @@
         </form>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="project_delails">
+  <div id="details_card">
+    <h1><%= project_details.name%></h1>
+    <p><%= project_details.description%></p>
+    <b>Created By: <%= project_details.author%></b>
+  </div>
+  <div id="list_header">
+    <div class="select_contener">
+      <label for="author">Type Title/Description</label>
+      <input
+        type="text"
+        placeholder="Type..."
+        id="author"
+        class="selectpicker"
+      />
+    </div>
+    <div class="select_contener">
+      <label for="author">Select Author</label>
+      <select
+        class="selectpicker"
+        multiple
+        data-live-search="true"
+        aria-label="size 3 select example"
+      >
+        <% let authors = project_details.issues.map(a => a.author);%>
+        <%for(author of authors){%>
+        <option value="<%=author%>"><%=author%></option>
+        <%}%>
+      </select>
+    </div>
+    <div class="select_contener">
+      <label for="author">Select Lable</label>
+      <select
+        class="selectpicker"
+        multiple
+        data-live-search="true"
+        aria-label="size 3 select example"
+      >
+        <option value="Subtask">Subtask</option>
+        <option value="Bug">Bug</option>
+        <option value="Incident">Incident</option>
+        <option value="Problem">Problem</option>
+        <option value="Support">Support</option>
+      </select>
+    </div>
+  </div>
+  <div id="issue_list">
+    <%for (issue of project_details.issues){%>
+    <div class="isue_div">
+      <h3><%= issue.title%></h3>
+      <p><%= issue.description%></p>
+      <div class="issue_footer">
+        <div class="labels">
+          <b>Labels: </b>
+          <%for (label of issue.labels){%>
+          <span class="badge bg-primary"> <%= label%> </span>
+          <%}%>
+        </div>
+        <b>Creater: <%= issue.author%></b>
+      </div>
+    </div>
+    <%}%>
   </div>
 </section>
