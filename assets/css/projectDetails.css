@@ -88,10 +88,9 @@
     width: 40rem;
     margin-bottom: 10px; }
     #project_delails .isue_div p {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 30rem; }
+      width: 30rem;
+      white-space: normal;
+      word-break: break-word; }
     #project_delails .isue_div .issue_footer {
       display: flex;
       justify-content: space-between; }
