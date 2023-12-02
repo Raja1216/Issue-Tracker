@@ -7,7 +7,7 @@ const homeController = require("../controllers/home_controller");
 router.get("/", homeController.home);
 // If Request is comming from projects that go to projects router
 router.use("/projects", require("./projects"));
-// //If Request is comming from posts that go to posts router
+// //If Request is comming from issue that go to issue router
 router.use("/issues", require("./issue"));
 
 module.exports = router;

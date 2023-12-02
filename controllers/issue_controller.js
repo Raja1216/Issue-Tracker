@@ -2,6 +2,7 @@ const Issue = require("../models/issues");
 const Project = require("../models/projects");
 
 module.exports.create = async function (req, res) {
+  console.log(req.body.labels);
   Project.findById(req.params.id)
     .then((project) => {
       const req_data = {

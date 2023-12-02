@@ -91,44 +91,53 @@
     <b>Created By: <%= project_details.author%></b>
   </div>
   <div id="list_header">
-    <div class="select_contener">
-      <label for="author">Type Title/Description</label>
-      <input
-        type="text"
-        placeholder="Type..."
-        id="author"
-        class="selectpicker"
-      />
-    </div>
-    <div class="select_contener">
-      <label for="author">Select Author</label>
-      <select
-        class="selectpicker"
-        multiple
-        data-live-search="true"
-        aria-label="size 3 select example"
-      >
-        <% let authors = project_details.issues.map(a => a.author);%>
-        <%for(author of authors){%>
-        <option value="<%=author%>"><%=author%></option>
-        <%}%>
-      </select>
-    </div>
-    <div class="select_contener">
-      <label for="author">Select Lable</label>
-      <select
-        class="selectpicker"
-        multiple
-        data-live-search="true"
-        aria-label="size 3 select example"
-      >
-        <option value="Subtask">Subtask</option>
-        <option value="Bug">Bug</option>
-        <option value="Incident">Incident</option>
-        <option value="Problem">Problem</option>
-        <option value="Support">Support</option>
-      </select>
-    </div>
+    <form action="/projects/details/<%= project_details._id%>" method="get">
+      <div class="select_contener">
+        <label for="search">Type Title/Description</label>
+        <input
+          type="text"
+          placeholder="Type..."
+          id="author"
+          class="selectpicker"
+          name="search_input"
+        />
+      </div>
+      <div class="select_contener">
+        <label for="author">Select Author</label>
+        <select
+          class="selectpicker"
+          multiple
+          data-live-search="true"
+          aria-label="size 3 select example"
+          name="authors[]"
+        >
+          <% let authors = project_details.issues.map(a => a.author);%>
+          <%for(author of authors){%>
+          <option value="<%=author%>"><%=author%></option>
+          <%}%>
+        </select>
+      </div>
+      <div class="select_contener">
+        <label for="label">Select Label</label>
+        <select
+          class="selectpicker"
+          multiple
+          data-live-search="true"
+          aria-label="size 3 select example"
+          value="<%=p_query != null ? p_query.labels: [] %>"
+          name="labels[]"
+        >
+          <option value="Subtask">Subtask</option>
+          <option value="Bug">Bug</option>
+          <option value="Incident">Incident</option>
+          <option value="Problem">Problem</option>
+          <option value="Support">Support</option>
+        </select>
+      </div>
+      <button type="submit" id="find_btn">
+        Find
+      </button>
+    </form>
   </div>
   <div id="issue_list">
     <%for (issue of project_details.issues){%>
@@ -148,3 +157,4 @@
     <%}%>
   </div>
 </section>
+
