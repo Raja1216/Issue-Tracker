@@ -134,9 +134,13 @@
           <option value="Support">Support</option>
         </select>
       </div>
-      <button type="submit" id="find_btn">
-        Find
-      </button>
+      <div class="select_contener">
+        <a id="clear_btn" href="/projects/details/<%= project_details._id%>">Clear filter</a>
+        <button type="submit" id="find_btn">
+          Find
+        </button>
+       
+      </div>
     </form>
   </div>
   <div id="issue_list">

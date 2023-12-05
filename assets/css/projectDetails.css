@@ -126,7 +126,6 @@
       #project_delails #list_header form #find_btn {
         height: 2.5rem;
         width: 4rem;
-        margin-top: 1.7rem;
         border-radius: 4px;
         outline: none;
         background: #fff;
@@ -140,6 +139,11 @@
         background: #0099ff;
         border: 1px solid #fff;
         color: #fff; }
+      #project_delails #list_header form #clear_btn {
+        text-decoration: none;
+        color: #0109ff; }
+      #project_delails #list_header form #clear_btn:hover {
+        color: #ff1a01; }
   #project_delails #issue_list {
     max-height: 20rem;
     overflow-y: scroll; }

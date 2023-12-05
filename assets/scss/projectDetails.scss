@@ -155,7 +155,6 @@
       #find_btn {
         height: 2.5rem;
         width: 4rem;
-        margin-top: 1.7rem;
         border-radius: 4px;
         outline: none;
         background: #fff;
@@ -170,6 +169,13 @@
         background: rgb(0, 153, 255);
         border: 1px solid #fff;
         color: #fff;
+      }
+      #clear_btn{
+        text-decoration: none;
+        color: #0109ff;
+      }
+      #clear_btn:hover{
+        color: #ff1a01;
       }
     }
   }
